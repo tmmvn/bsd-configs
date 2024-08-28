@@ -1,0 +1,25 @@
+/bin /gates/wg/bin nullfs ro 0 0
+/boot /gates/wg/boot nullfs ro 0 0
+/lib /gates/wg/lib nullfs ro 0 0
+/libexec /gates/wg/libexec nullfs ro 0 0
+/rescue /gates/wg/rescue nullfs ro 0 0
+/sbin /gates/wg/sbin nullfs ro 0 0
+/usr/bin /gates/wg/usr/bin nullfs ro 0 0
+/usr/include /gates/wg/usr/include nullfs ro 0 0
+/usr/lib /gates/wg/usr/lib nullfs ro 0 0
+/usr/libdata /gates/wg/usr/libdata nullfs ro 0 0
+/usr/libexec /gates/wg/usr/libexec nullfs ro 0 0
+/usr/lib32 /gates/wg/usr/lib32 nullfs ro 0 0
+/usr/ports /gates/wg/usr/ports nullfs ro 0 0
+/usr/sbin /gates/wg/usr/sbin nullfs ro 0 0
+/usr/share /gates/wg/usr/share nullfs ro 0 0
+/usr/src /gates/wg/usr/src nullfs ro 0 0
+
+# Unique
+#/etc etc
+#/home home
+#/root root
+#/usr/local usr/local
+#/usr/ports/distfiles usr/ports/distfiles
+#/tmp tmp
+#/var var

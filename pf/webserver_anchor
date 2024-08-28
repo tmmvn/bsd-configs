@@ -1,0 +1,5 @@
+ext_if = "vtnet0"
+table <webcrawlers> persist
+pass in on $ext_if proto tcp to port { 80 443 } \
+	keep state (max-src-conn 45, max-src-conn-rate 9/1, \
+	overload <webcrawlers> flush global)

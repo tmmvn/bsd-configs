@@ -1,0 +1,20 @@
+ext_if = "vtnet0"
+int_if = "vtnet1"
+icmp_types = "{ echoreq unreach }"
+tcp_services = "{ 22 53 80 123 443 }"
+udp_services = "{ 22 53 80 123 443 }"
+int_tcp_services = ""
+int_udp_services = "514"
+table <bruteforce> persist
+pass quick on { $int_if $ext_if } inet proto tcp from any port 67:68 to any port 67:68 keep state flags S/SA
+pass quick on { $int_if $ext_if } inet proto udp from any port 67:68 to any port 67:68 keep state
+pass quick on { $int_if $ext_if } inet proto tcp from any port 67:68 to any port 547:546 keep state flags S/SA
+pass quick on { $int_if $ext_if } inet proto udp from any port 67:68 to any port 547:546 keep state
+pass in on $ext_if proto tcp to port { 22 } \
+	keep state (max-src-conn 15, max-src-conn-rate 3/600, \
+	overload <bruteforce> flush global)
+pass out on $int_if proto tcp to port $int_tcp_services
+pass out on $int_if proto udp to port $int_udp_services
+pass out on $ext_if proto tcp to port $tcp_services
+pass out on $ext_if proto udp to port $udp_services
+pass inet proto icmp icmp-type $icmp_types

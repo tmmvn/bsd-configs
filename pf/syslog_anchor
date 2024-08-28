@@ -1,0 +1,3 @@
+int_if = "vtnet1"
+syslog = "{ 514 }"
+pass in on $int_if proto udp to port $syslog
